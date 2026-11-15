@@ -1,0 +1,14 @@
+---
+import '../styles/global.css';
+import { nav } from '../data/site.js';
+import { pages } from '../data/pages.js';
+const { title, description = 'Banku Network verifies customers, patients, and partners in seconds, without paperwork and without exposing private files.' } = Astro.props;
+---
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{title} | Banku Network</title><meta name="description" content={description}><meta name="theme-color" content="#0b1030"><link rel="icon" href="/favicon.svg" type="image/svg+xml"></head>
+<body><header><div class="wrap"><a class="logo" href="/">Banku<b>Network</b></a><input type="checkbox" id="m" class="mc" aria-label="Toggle menu"><label for="m" class="mb" aria-hidden="true"><span></span></label><nav>{nav.map(([n,h])=><a href={h}>{n}</a>)}</nav><a class="btn sm" href="/contact">Get in touch</a></div></header>
+<main><slot/></main>
+<footer><div class="wrap fgrid"><div><a class="logo" href="/">Banku<b>Network</b></a><p>Welcoming people in seconds, protecting what is private.</p></div>
+<div><h4>Explore</h4>{pages.slice(0,6).map(p=><a href={'/'+p.slug}>{p.title}</a>)}</div>
+<div><h4>Company</h4>{pages.slice(6).map(p=><a href={'/'+p.slug}>{p.title}</a>)}</div></div>
+<div class="wrap copy">© {new Date().getFullYear()} Banku Network. All rights reserved.</div></footer></body></html>

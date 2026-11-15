@@ -1,17 +1,36 @@
 # Banku Network Website
 
-A polished landing page for Banku Network, designed for deployment on Vercel.
+A static Astro marketing website for Banku Network, introducing privacy-minded identity verification for healthcare, finance, pensions, and hiring teams.
 
-## Local preview
+Website: <https://banku.network>
+
+The site includes the homepage, product and sector pages, security and privacy information, integrations, human review, company details, and contact information. It is built with Astro and deployed on Vercel.
+
+## Requirements
+
+- Node.js 18.20.8+, 20.3+, or 22+
+- npm
+
+## Local development
+
+Install the exact dependencies in `package-lock.json`. This includes the Astro CLI; no global Astro installation is needed.
 
 ```bash
-python3 -m http.server 3000
+npm ci
+npm run dev
 ```
 
-Then open http://localhost:3000
+Open the local URL printed by Astro.
+
+## Production build
+
+```bash
+npm run build
+npm run preview
+```
+
+The production build is written to `dist/`.
 
 ## Deploy to Vercel
 
-1. Push this repository to GitHub.
-2. Import the repository in Vercel.
-3. Use the default settings for a static site.
+Import the repository into Vercel. The build command is `npm run build`; Astro generates the static site in `dist/`.
