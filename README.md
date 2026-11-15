@@ -2,16 +2,22 @@
 
 A polished landing page for Banku Network, designed for deployment on Vercel.
 
-## Local preview
+## Local development
 
 ```bash
-python3 -m http.server 3000
+npm install
+npm run dev
 ```
 
-Then open http://localhost:3000
+Open the local URL printed by Astro.
+
+## Production build
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Deploy to Vercel
 
-1. Push this repository to GitHub.
-2. Import the repository in Vercel.
-3. Use the default settings for a static site.
+Import the repository into Vercel. The build command is `npm run build`; Astro generates the static site in `dist/`.
