@@ -1,6 +1,10 @@
 # Banku Network Website
 
-A polished landing page for Banku Network, designed for deployment on Vercel.
+A static Astro marketing website for Banku Network, introducing privacy-minded identity verification for healthcare, finance, pensions, and hiring teams.
+
+Website: <https://banku.network>
+
+The site includes the homepage, product and sector pages, security and privacy information, integrations, human review, company details, and contact information. It is built with Astro and deployed on Vercel.
 
 ## Requirements
 
