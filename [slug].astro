@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { pages } from '../data/pages.js';
+import { contactEmail } from '../data/site.js';
+export function getStaticPaths(){ return pages.map(p=>({params:{slug:p.slug},props:{p}})); }
+const { p } = Astro.props;
+const more = pages.filter(x=>x.slug!=='contact'&&x.slug!==p.slug);
+const i = more.findIndex(x=>x.title>p.title);
+const rel = [0,1,2].map(k=>more[((i<0?0:i)+k*3)%more.length]);
+---
+<Base title={p.title} description={p.lead}>
+<section class="hero sub"><div class="wrap two"><div><p class="eyebrow">{p.eyebrow}</p><h1>{p.h1}</h1><p class="lead">{p.lead}</p>
+{p.slug==='contact'?<a class="btn" href={'mailto:'+contactEmail}>Email our team</a>:<a class="btn" href="/contact">Talk with our team</a>}</div>
+<img class="art" src={'/img/'+p.slug+'.svg'} width="480" height="360" alt="" decoding="async"></div></section>
+<section class="wrap grid">{p.points.map(([t,d],n)=><article class="card reveal"><span class="num">{n+1}</span><h3>{t}</h3><p>{d}</p></article>)}</section>
+<section class="wrap reveal"><blockquote>{p.note}</blockquote></section>
+<section class="wrap pad"><p class="eyebrow dk">Keep exploring</p><div class="grid">{rel.map(r=><a class="card tcard reveal" href={'/'+r.slug}><img src={'/img/'+r.slug+'.svg'} width="480" height="360" alt="" loading="lazy" decoding="async"><h3>{r.title}</h3><p>{r.eyebrow}</p></a>)}</div></section>
+<section class="wrap"><div class="cta reveal"><h2>Ready for a calmer welcome?</h2><p>See how Banku Network can work for your people.</p><a class="btn" href="/contact">Talk with our team</a></div></section>
+</Base>

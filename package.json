@@ -1,9 +1,1 @@
-{
-  "name": "banku-network-website",
-  "private": true,
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "python3 -m http.server 3000",
-    "start": "python3 -m http.server 3000"
-  }
-}
+{"name":"banku-network-website","type":"module","private":true,"scripts":{"dev":"astro dev","build":"astro build","preview":"astro preview"},"dependencies":{"astro":"^5.0.0"}}
